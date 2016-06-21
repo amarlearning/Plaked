@@ -15,13 +15,19 @@ import time
 # game initialization done
 pygame.init()
 
-# game display changed and updated
+# game display changed
 gameDisplay = pygame.display.set_mode((800,600))
-pygame.display.set_caption('Placked | @AmarLearning')
+
+# game name init and display updated
+pygame.display.set_caption('Placked beyond the Universe')
 pygame.display.update()
 
-# go to sleep for 10sec, for check!
-time.sleep(10)
+# variable init 
+gameExit = False
+
+while not gameExit :
+	# do what you like
+	i = 1  
 
 # you can signoff now, everything looks good!
 quit()
