@@ -8,4 +8,19 @@
 # MIT License. You can find a copy of the License
 # @http://amarlearning.mit-license.org
 
-import pygames
+# import library here
+import pygame
+import time
+
+# game initialization done
+pygame.init()
+
+# game display changed and updated
+gameDisplay = pygame.display.set_mode((800,600))
+pygame.display.update()
+
+# go to sleep for 10sec, for check!
+time.sleep(10)
+
+# you can signoff now, everything looks good!
+quit()
