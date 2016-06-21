@@ -17,6 +17,7 @@ pygame.init()
 
 # game display changed and updated
 gameDisplay = pygame.display.set_mode((800,600))
+pygame.display.set_caption('Placked | @AmarLearning')
 pygame.display.update()
 
 # go to sleep for 10sec, for check!
