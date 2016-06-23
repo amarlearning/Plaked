@@ -19,15 +19,17 @@ pygame.init()
 gameDisplay = pygame.display.set_mode((800,600))
 
 # game name init and display updated
-pygame.display.set_caption('Placked beyond the Universe')
+pygame.display.set_caption('Placked | Beyond the Universe')
 pygame.display.update()
 
 # variable init 
 gameExit = False
 
 while not gameExit :
-	# do what you like
-	i = 1  
+	for event in pygame.event.get():
+		if event.type  == pygame.QUIT:
+			gameExit = True
 
+pygame.quit()
 # you can signoff now, everything looks good!
 quit()
