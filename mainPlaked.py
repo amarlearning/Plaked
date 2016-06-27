@@ -34,7 +34,8 @@ clock = pygame.time.Clock()
 gameExit = False
 start_x = 400
 start_y = 300
-move_to = 0
+move_to_h = 0
+move_to_v = 0
 
 while not gameExit :
 	for event in pygame.event.get():
