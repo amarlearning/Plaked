@@ -43,11 +43,16 @@ while not gameExit :
 			gameExit = True
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_LEFT:
-				move_to = -10
+				move_to_h = -10
 			if event.key == pygame.K_RIGHT:
-				move_to = 10
-
-	start_x += move_to
+				move_to_h = 10
+			if event.key == pygame.K_UP:
+				move_to_v = -10
+			if event.key == pygame.K_DOWN:
+				move_to_v = 10
+				
+	start_x += move_to_h
+	start_y += move_to_v
 
 	gameDisplay.fill(white)
 	pygame.draw.rect(gameDisplay, black, [start_x, start_y , 10, 10])
