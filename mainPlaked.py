@@ -11,7 +11,7 @@
 # import library here
 import pygame
 import time
-import sys
+import random
 
 # contant value initialised
 white = (255,255,255)
@@ -52,6 +52,9 @@ def gameLoop():
 	# variable init 
 	gameExit = False
 	gameOver = False
+
+	randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
+	randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
 
 	start_x = display_width/2
 	start_y = display_height/2
@@ -99,6 +102,7 @@ def gameLoop():
 		start_y += move_to_v
 
 		gameDisplay.fill(white)
+		pygame.draw.rect(gameDisplay, red, [randomFruitX, randomFruitY, block, block])
 		pygame.draw.rect(gameDisplay, black, [start_x, start_y , block, block])
 		pygame.display.update()
 
