@@ -44,12 +44,16 @@ while not gameExit :
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_LEFT:
 				move_to_h = -10
+				move_to_v = 0
 			if event.key == pygame.K_RIGHT:
 				move_to_h = 10
+				move_to_v = 0
 			if event.key == pygame.K_UP:
 				move_to_v = -10
+				move_to_h = 0
 			if event.key == pygame.K_DOWN:
 				move_to_v = 10
+				move_to_h = 0
 				
 	start_x += move_to_h
 	start_y += move_to_v
