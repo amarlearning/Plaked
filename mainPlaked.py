@@ -83,6 +83,9 @@ def gameLoop():
 			pygame.display.update()
 
 			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					gameOver = False
+					gameExit = True
 				if event.type == pygame.KEYDOWN:
 					if event.key == pygame.K_q:
 						gameExit = True
@@ -134,8 +137,8 @@ def gameLoop():
 				gameOver = True
 
 		# check to see if snake has eaten apple or not ?
-		if start_x >= randomFruitX and start_x <= randomFruitX + appleSize:
-			if start_y >= randomFruitY and start_y <= randomFruitY + appleSize:
+		if start_x >= randomFruitX and start_x <= randomFruitX + appleSize - 1:
+			if start_y >= randomFruitY and start_y <= randomFruitY + appleSize - 1:
 				randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
 				randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
 				snakeLength += 1 
