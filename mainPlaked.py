@@ -17,6 +17,7 @@ import random
 white = (255,255,255)
 black = (0,0,0)
 red = (255,0,0)
+green = (0,155,0)
 
 # display init
 display_width = 800
@@ -42,16 +43,27 @@ FPS = 10
 block = 10
 
 # init font object with font size 25 
-font = pygame.font.SysFont("cursive", 25)
+font = pygame.font.SysFont(None, 25)
 
+# to generate and update snake :P
+def snake(block, snakeList):
+	for XnY in snakeList:
+		pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
+
+# func to print message on game display
 def message_to_display(msg, color):
 	screen_text = font.render(msg, True, color)
 	gameDisplay.blit(screen_text, [display_width/2-200, display_height/2])
 
+# game starts here
 def gameLoop():
 	# variable init 
 	gameExit = False
 	gameOver = False
+
+	# snake variables
+	snakeList = []
+	snakeLength = 1
 
 	randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
 	randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
@@ -103,8 +115,24 @@ def gameLoop():
 
 		gameDisplay.fill(white)
 		pygame.draw.rect(gameDisplay, red, [randomFruitX, randomFruitY, block, block])
-		pygame.draw.rect(gameDisplay, black, [start_x, start_y , block, block])
+
+		snakeHead = []
+		snakeHead.append(start_x)
+		snakeHead.append(start_y)
+
+		snakeList.append(snakeHead)
+
+		if len(snakeList) > snakeLength:
+			del snakeList[0]
+
+		snake(block, snakeList)
 		pygame.display.update()
+
+		# check to see if snake has eaten apple or not ?
+		if start_x == randomFruitX and start_y == randomFruitY:
+			randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
+			randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
+			snakeLength += 1 
 
 		# initialising no. of frames per sec
 		clock.tick(FPS)
@@ -114,4 +142,10 @@ def gameLoop():
 	# you can signoff now, everything looks good!
 	quit()
 
+# this fuction kicks-off everything 
 gameLoop()
+
+
+
+
+
