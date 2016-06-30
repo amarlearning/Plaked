@@ -41,6 +41,7 @@ FPS = 10
 
 # moving block size
 block = 10
+appleSize = 30
 
 # init font object with font size 25 
 font = pygame.font.SysFont(None, 25)
@@ -65,8 +66,8 @@ def gameLoop():
 	snakeList = []
 	snakeLength = 1
 
-	randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
-	randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
+	randomFruitX = round(random.randrange(0, display_width - appleSize) / 10.0) * 10.0
+	randomFruitY = round(random.randrange(0, display_height - appleSize) / 10.0) * 10.0
 
 	start_x = display_width/2
 	start_y = display_height/2
@@ -94,16 +95,16 @@ def gameLoop():
 			if event.type  == pygame.QUIT:
 				gameExit = True
 			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_LEFT:
+				if event.key == pygame.K_LEFT and move_to_h == 0:
 					move_to_h = -block
 					move_to_v = 0
-				if event.key == pygame.K_RIGHT:
+				elif event.key == pygame.K_RIGHT and move_to_h == 0:
 					move_to_h = block
 					move_to_v = 0
-				if event.key == pygame.K_UP:
+				elif event.key == pygame.K_UP and move_to_v == 0:
 					move_to_v = -block
 					move_to_h = 0
-				if event.key == pygame.K_DOWN:
+				elif event.key == pygame.K_DOWN and move_to_v == 0:
 					move_to_v = block
 					move_to_h = 0
 					
@@ -114,12 +115,11 @@ def gameLoop():
 		start_y += move_to_v
 
 		gameDisplay.fill(white)
-		pygame.draw.rect(gameDisplay, red, [randomFruitX, randomFruitY, block, block])
+		pygame.draw.rect(gameDisplay, red, [randomFruitX, randomFruitY, appleSize, appleSize])
 
 		snakeHead = []
 		snakeHead.append(start_x)
 		snakeHead.append(start_y)
-
 		snakeList.append(snakeHead)
 
 		if len(snakeList) > snakeLength:
@@ -128,11 +128,17 @@ def gameLoop():
 		snake(block, snakeList)
 		pygame.display.update()
 
+		# to see if snake has eaten himself or not
+		for eachSegment in snakeList[:-1]:
+			if eachSegment == snakeHead:
+				gameOver = True
+
 		# check to see if snake has eaten apple or not ?
-		if start_x == randomFruitX and start_y == randomFruitY:
-			randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
-			randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
-			snakeLength += 1 
+		if start_x >= randomFruitX and start_x <= randomFruitX + appleSize:
+			if start_y >= randomFruitY and start_y <= randomFruitY + appleSize:
+				randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
+				randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
+				snakeLength += 1 
 
 		# initialising no. of frames per sec
 		clock.tick(FPS)
