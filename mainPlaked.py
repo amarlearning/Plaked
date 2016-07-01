@@ -37,10 +37,10 @@ pygame.display.update()
 clock = pygame.time.Clock()
 
 # Frames per second 
-FPS = 10
+FPS = 3
 
 # moving block size
-block = 10
+block = 20
 appleSize = 30
 
 # init font object with font size 25 
@@ -136,9 +136,19 @@ def gameLoop():
 			if eachSegment == snakeHead:
 				gameOver = True
 
-		# check to see if snake has eaten apple or not ?
-		if start_x >= randomFruitX and start_x <= randomFruitX + appleSize - 1:
-			if start_y >= randomFruitY and start_y <= randomFruitY + appleSize - 1:
+		# # check to see if snake has eaten apple or not ?
+		# if start_x >= randomFruitX and start_x <= randomFruitX + appleSize - 1:
+		# 	if start_y >= randomFruitY and start_y <= randomFruitY + appleSize - 1:
+		# 		randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
+		# 		randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
+		# 		snakeLength += 1 
+
+		if start_x > randomFruitX and start_x < randomFruitX + appleSize or start_x + block > randomFruitX and start_x + block < randomFruitX + appleSize:
+			if start_y > randomFruitY and start_y < randomFruitY + appleSize:
+				randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
+				randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
+				snakeLength += 1 
+			if start_y + block > randomFruitY and start_y + block < randomFruitY + appleSize:
 				randomFruitX = round(random.randrange(0, display_width - block) / 10.0) * 10.0
 				randomFruitY = round(random.randrange(0, display_height - block) / 10.0) * 10.0
 				snakeLength += 1 
