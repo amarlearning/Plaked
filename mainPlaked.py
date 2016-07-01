@@ -190,7 +190,7 @@ def gameLoop():
 		while gameOver == True :
 			gameDisplay.fill(white)
 			message_to_display("Game Over", red, -70, "large")
-			message_to_display("Press C to continue and Q to quit!", black, 30)
+			message_to_display("Press [C] to continue and [Q] to quit!", black, 30)
 			pygame.display.update()
 
 			for event in pygame.event.get():
