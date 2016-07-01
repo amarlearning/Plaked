@@ -12,6 +12,7 @@
 import pygame
 import time
 import random
+from os import path
 
 # contant value initialised
 white = (255,255,255)
@@ -26,13 +27,16 @@ display_height = 600
 # game initialization done
 pygame.init()
 
+# path for the image folder
+img_dir = path.join(path.dirname(__file__), 'assets')
+
 # game display changed
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 
 # image loading for both apple and snake
-snakeimg = pygame.image.load('pixelme.png')
-gameicon = pygame.image.load('gameicon.png')
-appleimg = pygame.image.load('apple.png')
+snakeimg = pygame.image.load(path.join(img_dir + '\pixelme.png'))
+gameicon = pygame.image.load(path.join(img_dir + '\gameicon.png'))
+appleimg = pygame.image.load(path.join(img_dir + '\\apple.png'))
 
 # game name init and display updated
 pygame.display.set_caption('Placked | Beyond the Apple')
