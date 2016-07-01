@@ -32,9 +32,10 @@ gameDisplay = pygame.display.set_mode((display_width, display_height))
 # image loading for both apple and snake
 snakeimg = pygame.image.load('pixelme.png')
 gameicon = pygame.image.load('gameicon.png')
+appleimg = pygame.image.load('apple.png')
 
 # game name init and display updated
-pygame.display.set_caption('Placked | Beyond the Universe')
+pygame.display.set_caption('Placked | Beyond the Apple')
 pygame.display.update()
 
 # updating the game icon in window
@@ -58,6 +59,32 @@ smallfont = pygame.font.SysFont("comicsansms", 20)
 medfont = pygame.font.SysFont("comicsansms", 40)
 largefont = pygame.font.SysFont("comicsansms", 70)
 
+# function to pause the game
+def pause():
+	paused = True
+	while paused:
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				pygame.QUIT()
+				quit()
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_c:
+					paused = False
+				if event.key == pygame.K_q:
+					pygame.QUIT()
+					quit()
+		gameDisplay.fill(white)
+		message_to_display("Paused", black, -80, "large")
+		message_to_display("Press [C] to Continue and [Q] to Quit!", black)
+		pygame.display.update()
+
+
+
+# function to print score
+def score(score):
+	text = smallfont.render("Score : " + str(score), True, black)
+	gameDisplay.blit(text, [2,2])
+
 
 # function for random apple generation
 def randomAppleGen():
@@ -76,7 +103,6 @@ def start_screen():
 				quit()
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_c:
-					print("pressed C")
 					show_the_welcome_screen = False
 				if event.key == pygame.K_q:
 					pygame.quit()
@@ -84,11 +110,11 @@ def start_screen():
 
 		gameDisplay.fill(white)
 		
-		message_to_display("Welcome to Plaked", green, -100, "large")
+		message_to_display("Welcome to Plaked", green, -120, "large")
 		message_to_display("The objective of this game is to eat red apples", black, -30)
 		message_to_display("The more apple you eat, the longer you get", black, 10)
 		message_to_display("If you run into yourself, or the boundary, you die!", black, 50)
-		message_to_display("Press C to play and Q to quit", black, 150)
+		message_to_display("Press [C] to Play, [P] to Pause and [Q] to Quit", black, 150)
 
 		pygame.display.update()
 		clock.tick(15)
@@ -195,6 +221,8 @@ def gameLoop():
 					direction = "down"
 					move_to_v = block
 					move_to_h = 0
+				elif event.key == pygame.K_p:
+					pause()
 					
 		if start_x >= display_width or start_x < 0 or start_y >= display_height or start_y < 0:
 			gameOver = True
@@ -203,7 +231,7 @@ def gameLoop():
 		start_y += move_to_v
 
 		gameDisplay.fill(white)
-		pygame.draw.rect(gameDisplay, red, [randomFruitX, randomFruitY, appleSize, appleSize])
+		gameDisplay.blit(appleimg, (randomFruitX, randomFruitY))
 
 		snakeHead = []
 		snakeHead.append(start_x)
@@ -212,6 +240,8 @@ def gameLoop():
 
 		if len(snakeList) > snakeLength:
 			del snakeList[0]
+
+		score(snakeLength - 1)
 
 		snake(block, snakeList)
 		pygame.display.update()
