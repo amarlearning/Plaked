@@ -2,10 +2,11 @@
 <h4 align="center">[Classic Snake Game built using Pygame]</h4>
 
 <p align="center">
+<a href="https://travis-ci.org/amarlearning/Plaked"><img src="https://travis-ci.org/amarlearning/Plaked.svg?branch=master"></a>
 <a href="http://amarlearning.mit-license.org/"><img src="https://img.shields.io/pypi/l/pyzipcode-cli.svg" alt="mit license"></a>
-<a href="https://github.com/amarlearning/Pingetron/issues"><img src="https://camo.githubusercontent.com/926d8ca67df15de5bd1abac234c0603d94f66c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174" alt="Issue"></a>
+<a href="https://github.com/amarlearning/Plaked/issues"><img src="https://camo.githubusercontent.com/926d8ca67df15de5bd1abac234c0603d94f66c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c6174" alt="Issue"></a>
 </p>
-Pingetron is a very basic application built using <a href="http://electron.atom.io">Electron</a> and <a href="https://nodejs.org">NodeJs</a> which sends a request to the server and if the server responds, we say internet is working else internet is not working!
+Though internet is good at IIT Gandhinagar, but that day it's was not working for some hours. I was getting bored and i was not able to do my regular work as well. so i made this **_Classic Snake Game_** named **_Plaked | Beyond the Apple_** using Pygame Library of Python. 
 
 ##Index
 - [Demo](#demo)
@@ -23,72 +24,60 @@ Pingetron is a very basic application built using <a href="http://electron.atom.
 ***
 
 ##Demo
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 Watch a live demo of it working here
-[![pingetron](https://github.com/amarlearning/Pingetron/raw/master/screenshot/demo.png)](https://youtu.be/D_JO7XkmahQ)
+[![pingetron](https://github.com/amarlearning/Plaked/raw/master/screenshots/giphy.gif)](https://youtu.be/67en0hRGUvc)
 
 ***
 
 ##Features
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
  
-- **Fast update** - As soon as the internet stops, it immediately indicates you.
-- **Easy to use** - make it run once, it will start working as background application.
-
-> P.S - No more time wasting in opening <a href="www.google.com">google.com</a> and check whether internet is working or not! 
+- **Pause & Play** - You can pause the game any time you want and then continue it from where you left.
+- **Easy to use** - Everyhting is mentioned on the starting screen, download it and enjoy!
 
 ***
 
 ##Installation
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 #### Clone it
 
 <b>1.)</b> Clone the repository by using this link :
 ```
-https://github.com/amarlearning/Pingetron.git
+https://github.com/amarlearning/Plaked.git
 ```
 #### Run it
 
 <b>2.)</b> Go to your ```Git``` directory, open terminal window there and the type these comands :
 ```
-cd Pingetron
-npm install & npm start
+cd Plaked
+python mainPlaked.py
+
 ```
 
-<b>Note :</b> You need to have installed NodeJs on you system.
-
-***
-
-## Supported platforms
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
-
-| OS | Support status | Download Link 32 bit version | Download Link 64 bit version |
-| --- | --- | ---|---|
-| Linux | :white_check_mark: Full support | <a href="https://github.com/amarlearning/Pingetron/releases/download/linux-32-v1.0.1/Pingetron-linux-ia32.zip">Download 32-bit-version</a> | <a href="https://github.com/amarlearning/Pingetron/releases/download/linux-64-v1.0.1/Pingetron-linux-x64.zip">Download 64-bit-version</a>|
-| OS X | :white_check_mark: Full support  | <a href="">Download 32-bit-version</a> |<a href="">Download 64-bit-version</a> |
-| Windows | :white_check_mark: Full support | <a href="https://github.com/amarlearning/Pingetron/releases/download/windows32-ia32/Pingetron-win32-ia32.zip">Download 32-bit-version</a>|<a href="https://github.com/amarlearning/Pingetron/releases/download/win-64-v1.0.1/Pingetron-win32-x64.zip">Download 64-bit-version</a> |
+<b>Note :</b> You need to have Python installed on your system.
 
 ***
 
 ## Contributing
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 > All contributions accepted.
 
 #### To-do
   
-- [ ] Change the image which are being used as indicator.
-- [x] Add quit application option in menu.
-- [ ] Application should not start if it is already running.
+- [ ] Update the snake and the apple image.
+- [ ] Add some kind of background sound to the game.
+- [ ] And an option to play and pause the sound.
 
 ***
 
 ## Issues
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
-You can report the bugs at the [issue tracker](https://github.com/amarlearning/Pingetron/issues)
+You can report the bugs at the [issue tracker](https://github.com/amarlearning/Plaked/issues)
 
 **OR**
 
@@ -97,7 +86,7 @@ You can [tweet me](https://twitter.com/amarpandey007) if you can't get it to wor
 ***
 
 ##License
-[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Pingetron#pingetron)
+[:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 Built with ♥ by Amar Prakash Pandey([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
 
