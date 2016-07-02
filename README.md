@@ -14,7 +14,6 @@ Though internet is good at IIT Gandhinagar, but that day it's was not working fo
 - [Installation](#installation)
   - [Clone it](#clone-it)
   - [Run it](#run-it)
-- [Supported platforms](#supported-platforms)
 - [Contributing](#contributing)
   - [To-do](#to-do)
 - [Issues](#issues)
@@ -26,7 +25,7 @@ Though internet is good at IIT Gandhinagar, but that day it's was not working fo
 ##Demo
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
-Watch a live demo of it working here
+Watch a live demo of it working here <br><br>
 [![pingetron](https://github.com/amarlearning/Plaked/raw/master/screenshots/giphy.gif)](https://youtu.be/67en0hRGUvc)
 
 ***
