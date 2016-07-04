@@ -190,7 +190,9 @@ def gameLoop():
 		while gameOver == True :
 			gameDisplay.fill(white)
 			message_to_display("Game Over", red, -70, "large")
-			message_to_display("Press [C] to continue and [Q] to quit!", black, 30)
+			text = smallfont.render("Your final score is : " + str(snakeLength), True, black)
+			gameDisplay.blit(text, [300,300])
+			message_to_display("Press [C] to Play Again and [Q] to quit!", black, 60)
 			pygame.display.update()
 
 			for event in pygame.event.get():
@@ -275,8 +277,3 @@ def gameLoop():
 # this fuction kicks-off everything 
 start_screen()
 gameLoop()
-
-
-
-
-
