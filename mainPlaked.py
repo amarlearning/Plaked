@@ -4,7 +4,7 @@
 # @Email:  amar.om1994@gmail.com  
 # @Github username: @amarlearning
 # @Last Modified by: Amar Prakash Pandey  
-# @Last Modified date: 2016-06-20
+# @Last Modified date: 2016-06-27
 # MIT License. You can find a copy of the License
 # @http://amarlearning.mit-license.org
 
@@ -33,7 +33,7 @@ img_dir = path.join(path.dirname(__file__), 'assets')
 # game display changed
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 
-# image loading for both apple and snake
+# image loading for both apple and snake and game icon
 snakeimg = pygame.image.load(path.join(img_dir + '\pixelme.png'))
 gameicon = pygame.image.load(path.join(img_dir + '\gameicon.png'))
 appleimg = pygame.image.load(path.join(img_dir + '\\apple.png'))
