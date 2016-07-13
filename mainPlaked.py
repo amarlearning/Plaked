@@ -104,7 +104,7 @@ def randomAppleGen():
 
 # function for start screen!
 def start_screen():
-	menu_song = pygame.mixer.music.load(path.join(sound_folder, "menu.ogg"))
+	menu_song = pygame.mixer.music.load(path.join(sound_folder, "one.ogg"))
 	pygame.mixer.music.play(-1)
 
 	# titleTrack.play()
