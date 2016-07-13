@@ -26,17 +26,19 @@ display_height = 600
 
 # game initialization done
 pygame.init()
+pygame.mixer.init()
 
 # path for the image folder
-img_dir = path.join(path.dirname(__file__), 'assets')
+assets = path.join(path.dirname(__file__), 'assets')
+sound_folder = path.join(path.dirname(__file__), 'sounds')
 
 # game display changed
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 
 # image loading for both apple and snake
-snakeimg = pygame.image.load(path.join(img_dir + '\pixelme.png'))
-gameicon = pygame.image.load(path.join(img_dir + '\gameicon.png'))
-appleimg = pygame.image.load(path.join(img_dir + '\\apple.png'))
+snakeimg = pygame.image.load(path.join(assets + '\pixelme.png'))
+gameicon = pygame.image.load(path.join(assets + '\gameicon.png'))
+appleimg = pygame.image.load(path.join(assets + '\\apple.png'))
 
 # game name init and display updated
 pygame.display.set_caption('Placked | Beyond the Apple')
@@ -62,6 +64,9 @@ direction = "right"
 smallfont = pygame.font.SysFont("comicsansms", 20)
 medfont = pygame.font.SysFont("comicsansms", 40)
 largefont = pygame.font.SysFont("comicsansms", 70)
+
+# init music for background
+# titleTrack = pygame.mixer.music.load(path.join(assets + '\music\\the_next_episode.ogg'))
 
 # function to pause the game
 def pause():
@@ -99,6 +104,10 @@ def randomAppleGen():
 
 # function for start screen!
 def start_screen():
+	menu_song = pygame.mixer.music.load(path.join(sound_folder, "one.ogg"))
+	pygame.mixer.music.play(-1)
+
+	# titleTrack.play()
 	show_the_welcome_screen = True
 	while show_the_welcome_screen:
 		for event in pygame.event.get():
