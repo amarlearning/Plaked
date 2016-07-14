@@ -68,6 +68,8 @@ largefont = pygame.font.SysFont("comicsansms", 70)
 # function to pause the game
 def pause():
 	paused = True
+	menu_song = pygame.mixer.music.load(path.join(sound_folder, "menu.ogg"))
+	pygame.mixer.music.play(-1)
 	while paused:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -76,6 +78,7 @@ def pause():
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_c:
 					paused = False
+					pygame.mixer.music.fadeout(400)
 				if event.key == pygame.K_q:
 					pygame.QUIT()
 					quit()
@@ -83,7 +86,6 @@ def pause():
 		message_to_display("Paused", black, -80, "large")
 		message_to_display("Press [C] to Continue and [Q] to Quit!", black)
 		pygame.display.update()
-
 
 
 # function to print score
@@ -101,7 +103,7 @@ def randomAppleGen():
 
 # function for start screen!
 def start_screen():
-	menu_song = pygame.mixer.music.load(path.join(sound_folder, "one.ogg"))
+	menu_song = pygame.mixer.music.load(path.join(sound_folder, "menu.ogg"))
 	pygame.mixer.music.play(-1)
 
 	# titleTrack.play()
@@ -173,6 +175,9 @@ def gameLoop():
 	# global variable direction
 	global direction
 
+	# menu sound stops
+	pygame.mixer.music.fadeout(600)
+	
 	direction = "right"
 
 	# variable init 
@@ -193,24 +198,27 @@ def gameLoop():
 
 	while not gameExit :
 
-		while gameOver == True :
-			gameDisplay.fill(white)
-			message_to_display("Game Over", red, -70, "large")
-			text = smallfont.render("Your final score is : " + str(snakeLength), True, black)
-			gameDisplay.blit(text, [300,300])
-			message_to_display("Press [C] to Play Again and [Q] to quit!", black, 60)
-			pygame.display.update()
+		if gameOver == True:
+			menu_song = pygame.mixer.music.load(path.join(sound_folder, "gameover.ogg"))
+			pygame.mixer.music.play(-1)
+			while gameOver == True :
+				gameDisplay.fill(white)
+				message_to_display("Game Over", red, -70, "large")
+				text = smallfont.render("Your final score is : " + str(snakeLength), True, black)
+				gameDisplay.blit(text, [300,300])
+				message_to_display("Press [C] to Play Again and [Q] to quit!", black, 60)
+				pygame.display.update()
 
-			for event in pygame.event.get():
-				if event.type == pygame.QUIT:
-					gameOver = False
-					gameExit = True
-				if event.type == pygame.KEYDOWN:
-					if event.key == pygame.K_q:
-						gameExit = True
+				for event in pygame.event.get():
+					if event.type == pygame.QUIT:
 						gameOver = False
-					if event.key == pygame.K_c:
-						gameLoop()
+						gameExit = True
+					if event.type == pygame.KEYDOWN:
+						if event.key == pygame.K_q:
+							gameExit = True
+							gameOver = False
+						if event.key == pygame.K_c:
+							gameLoop()
 
 
 		for event in pygame.event.get():
@@ -268,9 +276,13 @@ def gameLoop():
 			if start_y > randomFruitY and start_y < randomFruitY + appleSize:
 				randomFruitX, randomFruitY = randomAppleGen()
 				snakeLength += 1 
+				menu_song = pygame.mixer.music.load(path.join(sound_folder, "plop.ogg"))
+				pygame.mixer.music.play(0)
 			if start_y + block > randomFruitY and start_y + block < randomFruitY + appleSize:
 				randomFruitX, randomFruitY = randomAppleGen()
 				snakeLength += 1 
+				menu_song = pygame.mixer.music.load(path.join(sound_folder, "plop.ogg"))
+				pygame.mixer.music.play(0)
 
 		# initialising no. of frames per sec
 		clock.tick(FPS)
