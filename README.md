@@ -52,8 +52,8 @@ https://github.com/amarlearning/Plaked.git
 <b>2.)</b> Go to your ```Git``` directory, open terminal window there and the type these comands :
 ```
 cd Plaked
+pip install -r requirements.txt
 python mainPlaked.py
-
 ```
 
 <b>Note :</b> You need to have Python installed on your system.
