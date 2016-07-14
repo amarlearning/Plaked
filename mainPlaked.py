@@ -39,6 +39,8 @@ gameDisplay = pygame.display.set_mode((display_width, display_height))
 snakeimg = pygame.image.load(path.join(assets + '\pixelme.png'))
 gameicon = pygame.image.load(path.join(assets + '\gameicon.png'))
 appleimg = pygame.image.load(path.join(assets + '\\apple.png'))
+coverimg = pygame.image.load(path.join(assets + '\coverimage.png'))
+coverimg = pygame.transform.scale(coverimg,(800,600))
 
 # game name init and display updated
 pygame.display.set_caption('Placked | Beyond the Apple')
@@ -121,8 +123,8 @@ def start_screen():
 					quit()
 
 		gameDisplay.fill(white)
-		
-		message_to_display("Welcome to Plaked", green, -120, "large")
+		gameDisplay.blit(coverimg, (0,0))
+		message_to_display("Plaked", green, -120, "large")
 		message_to_display("The objective of this game is to eat red apples", black, -30)
 		message_to_display("The more apple you eat, the longer you get", black, 10)
 		message_to_display("If you run into yourself, or the boundary, you die!", black, 50)
@@ -201,6 +203,7 @@ def gameLoop():
 		if gameOver == True:
 			menu_song = pygame.mixer.music.load(path.join(sound_folder, "gameover.ogg"))
 			pygame.mixer.music.play(-1)
+
 			while gameOver == True :
 				gameDisplay.fill(white)
 				message_to_display("Game Over", red, -70, "large")
@@ -276,12 +279,12 @@ def gameLoop():
 			if start_y > randomFruitY and start_y < randomFruitY + appleSize:
 				randomFruitX, randomFruitY = randomAppleGen()
 				snakeLength += 1 
-				menu_song = pygame.mixer.music.load(path.join(sound_folder, "plop.ogg"))
+				menu_song = pygame.mixer.music.load(path.join(sound_folder, "wakka.ogg"))
 				pygame.mixer.music.play(0)
 			if start_y + block > randomFruitY and start_y + block < randomFruitY + appleSize:
 				randomFruitX, randomFruitY = randomAppleGen()
 				snakeLength += 1 
-				menu_song = pygame.mixer.music.load(path.join(sound_folder, "plop.ogg"))
+				menu_song = pygame.mixer.music.load(path.join(sound_folder, "wakka.ogg"))
 				pygame.mixer.music.play(0)
 
 		# initialising no. of frames per sec
