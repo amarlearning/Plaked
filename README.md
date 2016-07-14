@@ -68,8 +68,9 @@ python mainPlaked.py
 #### To-do
   
 - [ ] Update the snake and the apple image.
-- [ ] Add some kind of background sound to the game.
-- [ ] And an option to play and pause the sound.
+- [x] Add some kind of background sound to the game.
+- [ ] Enhance the UI of the game.
+- [x] And an option to play and pause the sound.
 
 ***
 
