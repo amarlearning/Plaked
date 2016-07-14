@@ -4,7 +4,7 @@
 # @Email:  amar.om1994@gmail.com  
 # @Github username: @amarlearning
 # @Last Modified by: Amar Prakash Pandey  
-# @Last Modified date: 2016-06-27
+# @Last Modified date: 2016-07-14
 # MIT License. You can find a copy of the License
 # @http://amarlearning.mit-license.org
 
@@ -64,9 +64,6 @@ direction = "right"
 smallfont = pygame.font.SysFont("comicsansms", 20)
 medfont = pygame.font.SysFont("comicsansms", 40)
 largefont = pygame.font.SysFont("comicsansms", 70)
-
-# init music for background
-# titleTrack = pygame.mixer.music.load(path.join(assets + '\music\\the_next_episode.ogg'))
 
 # function to pause the game
 def pause():
