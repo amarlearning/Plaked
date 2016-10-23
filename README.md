@@ -26,7 +26,7 @@ Though internet is good at IIT Gandhinagar, but that day it's was not working fo
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 Watch a live demo of it working here <br><br>
-[![pingetron](https://github.com/amarlearning/Plaked/raw/master/screenshots/giphy.gif)](https://youtu.be/67en0hRGUvc)
+[![plaked](https://github.com/amarlearning/Plaked/raw/master/screenshots/giphy.gif)](https://youtu.be/67en0hRGUvc)
 
 ***
 
