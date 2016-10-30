@@ -36,7 +36,9 @@ sound_folder = path.join(path.dirname(__file__), 'sounds')
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 
 # image loading for both apple and snake
-snakeimg = pygame.image.load(path.join(assets + '\pixelme.png'))
+snakeimg = pygame.image.load(path.join(assets + '\snake.png'))
+snakebody = pygame.image.load(path.join(assets + '\body.png'))
+snaketail = pygame.image.load(path.join(assets + '\tail.png'))
 gameicon = pygame.image.load(path.join(assets + '\gameicon.png'))
 appleimg = pygame.image.load(path.join(assets + '\\apple.png'))
 coverimg = pygame.image.load(path.join(assets + '\coverimage.png'))
@@ -135,7 +137,11 @@ def start_screen():
 
 # to generate and update snake :P
 def snake(snakeList):
-
+	# At some point, we may want to rotate the snake's body when it reaches
+	# a part where the snake turns
+	body = pygame.transform.rotate(snakebody, 0)
+	tail = pygame.transform.rotate(snaketail, 0)
+	
 	if direction == "right":
 		head = pygame.transform.rotate(snakeimg, 270)
 
