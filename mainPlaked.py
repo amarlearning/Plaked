@@ -134,7 +134,7 @@ def start_screen():
 		clock.tick(15)
 
 # to generate and update snake :P
-def snake(block, snakeList):
+def snake(snakeList):
 
 	if direction == "right":
 		head = pygame.transform.rotate(snakeimg, 270)
@@ -150,7 +150,11 @@ def snake(block, snakeList):
 
 	gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 	for XnY in snakeList[:-1]:
-		pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
+		gameDisplay.blit(body, (XnY[0], XnY[1]))
+		# pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
+	# Since the head seems to be at the last array element,
+	# Drawing tail at the start of the array
+	gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
 
 def text_object(msg, color,size):
 	if size == "small":	
@@ -266,7 +270,7 @@ def gameLoop():
 
 		score(snakeLength - 1)
 
-		snake(block, snakeList)
+		snake(snakeList)
 		pygame.display.update()
 
 		# to see if snake has eaten himself or not
