@@ -153,6 +153,7 @@ def snake(snakeList):
 
 	if direction == "down":
 		head = pygame.transform.rotate(snakeimg, 180)
+		
 	while not isDead:
 		gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 		for XnY in snakeList[:-1]:
@@ -162,10 +163,9 @@ def snake(snakeList):
 		# Drawing tail at the start of the array
 		gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
 	else:
-		# This intends to delete the snake starting from the tail when the snake eats itself
+		# Snake flashes on Game Over state
 		for i in range(0, 3):
-			# Give it a flashing effect
-			for i % 2 == 0:
+			if i % 2 == 0:
 				head.set_alpha(0)
 				gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 				for XnY in snakeList[:-1]:
@@ -174,7 +174,7 @@ def snake(snakeList):
 				tail.set_alpha(0)
 				gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
 				pygame.time.delay(20)
-			for i % 2 == 1:
+			if i % 2 == 1:
 				head.set_alpha(128)
 				gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 				for XnY in snakeList[:-1]:
