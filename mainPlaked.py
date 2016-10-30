@@ -139,8 +139,8 @@ def start_screen():
 def snake(snakeList):
 	# At some point, we may want to rotate the snake's body when it reaches
 	# a part where the snake turns
-	body = pygame.transform.rotate(snakebody, 0)
-	tail = pygame.transform.rotate(snaketail, 0)
+	body = pygame.transform.rotate(snakebody, 90)
+	tail = pygame.transform.rotate(snaketail, 90)
 	
 	if direction == "right":
 		head = pygame.transform.rotate(snakeimg, 270)
