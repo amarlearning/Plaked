@@ -36,12 +36,12 @@ sound_folder = path.join(path.dirname(__file__), 'sounds')
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 
 # image loading for both apple and snake
-snakeimg = pygame.image.load(path.join(assets + '\snake.png')).convert()
-snakebody = pygame.image.load(path.join(assets + '\body.png')).convert()
-snaketail = pygame.image.load(path.join(assets + '\tail.png')).convert()
-gameicon = pygame.image.load(path.join(assets + '\gameicon.png'))
-appleimg = pygame.image.load(path.join(assets + '\\apple.png'))
-coverimg = pygame.image.load(path.join(assets + '\coverimage.png'))
+snakeimg = pygame.image.load(path.join(assets + '/snake.png'))
+snakebody = pygame.image.load(path.join(assets + '/body.png'))
+snaketail = pygame.image.load(path.join(assets + '/tail.png'))
+gameicon = pygame.image.load(path.join(assets + '/gameicon.png'))
+appleimg = pygame.image.load(path.join(assets + '/apple.png'))
+coverimg = pygame.image.load(path.join(assets + '/coverimage.png'))
 coverimg = pygame.transform.scale(coverimg,(800,600))
 
 # game name init and display updated
@@ -135,8 +135,9 @@ def start_screen():
 		pygame.display.update()
 		clock.tick(15)
 
+
 # to generate and update snake :P
-def snake(snakeList):
+def snake(block, snakeList):
 	# At some point, we may want to rotate the snake's body when it reaches
 	# a part where the snake turns
 	body = pygame.transform.rotate(snakebody, 0)
@@ -153,36 +154,11 @@ def snake(snakeList):
 
 	if direction == "down":
 		head = pygame.transform.rotate(snakeimg, 180)
-		
-	while not isDead:
-		gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
-		for XnY in snakeList[:-1]:
-			gameDisplay.blit(body, (XnY[0], XnY[1]))
-			# pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
-		# Since the head seems to be at the last array element,
-		# Drawing tail at the start of the array
-		gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
-	else:
-		# Snake flashes on Game Over state
-		for i in range(0, 3):
-			if i % 2 == 0:
-				head.set_alpha(0)
-				gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
-				for XnY in snakeList[:-1]:
-					body.set_alpha(0)
-					gameDisplay.blit(body, (XnY[0], XnY[1]))
-				tail.set_alpha(0)
-				gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
-				pygame.time.delay(20)
-			if i % 2 == 1:
-				head.set_alpha(128)
-				gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
-				for XnY in snakeList[:-1]:
-					body.set_alpha(128)
-					gameDisplay.blit(body, (XnY[0], XnY[1]))
-				tail.set_alpha(128)
-				gameDisplay.blit(tail, (snakeList[0][0], snakeList[-1][1]))
-				pygame.time.delay(20)
+
+	gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
+	for XnY in snakeList[:-1]:
+		pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
+
 
 def text_object(msg, color,size):
 	if size == "small":	
@@ -233,7 +209,6 @@ def gameLoop():
 	move_to_v = 0
 
 	while not gameExit :
-
 		if gameOver == True:
 			menu_song = pygame.mixer.music.load(path.join(sound_folder, "gameover.ogg"))
 			pygame.mixer.music.play(-1)
@@ -256,7 +231,6 @@ def gameLoop():
 							gameOver = False
 						if event.key == pygame.K_c:
 							gameLoop()
-
 
 		for event in pygame.event.get():
 			if event.type  == pygame.QUIT:
@@ -300,7 +274,7 @@ def gameLoop():
 
 		score(snakeLength - 1)
 
-		snake(snakeList)
+		snake(block, snakeList)
 		pygame.display.update()
 
 		# to see if snake has eaten himself or not
@@ -331,6 +305,8 @@ def gameLoop():
 	# you can signoff now, everything looks good!
 	quit()
 
-# this fuction kicks-off everything 
+# # this fuction kicks-off everything 
 start_screen()
 gameLoop()
+
+# snake([[400,400]])
