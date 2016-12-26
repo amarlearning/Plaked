@@ -312,5 +312,3 @@ def gameLoop():
 # # this fuction kicks-off everything 
 start_screen()
 gameLoop()
-
-# snake([[400,400]])
