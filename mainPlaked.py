@@ -160,6 +160,7 @@ def snake(block, snakeList):
 	# Will have to hamake it better and add the snake tail as well.
 	gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 	for XnY in snakeList[:-1]:
+		# gameDisplay.blit(head, (snakeList[-1][0], snakeList[-1][1]))
 		pygame.draw.rect(gameDisplay, green, [XnY[0], XnY[1], block, block])
 
 
@@ -311,5 +312,3 @@ def gameLoop():
 # # this fuction kicks-off everything 
 start_screen()
 gameLoop()
-
-# snake([[400,400]])
