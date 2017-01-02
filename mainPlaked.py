@@ -284,7 +284,7 @@ def gameLoop():
 		for eachSegment in snakeList[:-1]:
 			if eachSegment == snakeHead:
 				isDead = True
-				snake(snakeList)
+				snake(block, snakeList)
 				pygame.time.delay(1000)
 				gameOver = True
 
