@@ -8,7 +8,7 @@
 </p>
 Though internet is good at IIT Gandhinagar, but that day it's was not working for some hours. I was getting bored and i was not able to do my regular work as well. so i made this **_Classic Snake Game_** named **_Plaked | Beyond the Apple_** using Pygame Library of Python. 
 
-##Index
+## Index
 - [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
@@ -22,7 +22,7 @@ Though internet is good at IIT Gandhinagar, but that day it's was not working fo
 
 ***
 
-##Demo
+## Demo
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 Watch a live demo of it working here <br><br>
@@ -30,7 +30,7 @@ Watch a live demo of it working here <br><br>
 
 ***
 
-##Features
+## Features
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
  
 - **Pause & Play** - You can pause the game any time you want and then continue it from where you left.
@@ -38,7 +38,7 @@ Watch a live demo of it working here <br><br>
 
 ***
 
-##Installation
+## Installation
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 #### Clone it
@@ -85,7 +85,7 @@ You can [tweet me](https://twitter.com/iamarpandey) if you can't get it to work.
 
 ***
 
-##License
+## License
 [:arrow_up:\[Back to Top\]](https://github.com/amarlearning/Plaked#plaked)
 
 Built with ♥ by Amar Prakash Pandey([@amarlearning](http://github.com/amarlearning)) under [MIT License](http://amarlearning.mit-license.org/) 
